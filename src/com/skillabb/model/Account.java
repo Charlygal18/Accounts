@@ -5,10 +5,10 @@ public class Account {
 	public String accountNumber;
 	public double balance;
 	
-	public Account(){
-		this.customerName = "Carlos Galván";
-		this.accountNumber = "1";
-		this.balance = 1.0;
+	public Account(String customerName, String accountNumber, double balance){
+		this.customerName = customerName;
+		this.accountNumber = accountNumber;
+		this.balance = balance;
 		
 	}
 	
