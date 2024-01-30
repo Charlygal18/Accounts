@@ -19,6 +19,7 @@ public class AccountsMain {
 		
 		//Terceer requerimiento
 		System.out.println("--------------------------------");
+		/*
 		accountsImp.generateAccounts();
 		
 		for(Account accounts:accountsImp.getAccounts()) {
@@ -27,6 +28,7 @@ public class AccountsMain {
 			System.out.println("Balance: " + accounts.getBalance());
 			System.out.println("--------------------------------");
 		}
+		*/
 		
 	}
 
