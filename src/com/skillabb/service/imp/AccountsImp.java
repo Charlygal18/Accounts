@@ -77,7 +77,7 @@ public class AccountsImp implements AccountService{
     }
 
     private double generateAmount() {
-        return new Random().nextDouble();
+        return 100.0 + new Random().nextDouble() * 900;
     }
 
     public Accounts getAccounts() {
