@@ -9,9 +9,9 @@ public class AccountsMain {
 		//Primer requerimiento
 		Account account = new Account("Carlos Galván", "1", 1.0);
 		
-		System.out.println("Nombre del cliente: " + account.customerName);
-		System.out.println("Número de cuenta: " + account.accountNumber);
-		System.out.println("Balance: " + account.balance);
+		System.out.println("Nombre del cliente: " + account.getCustomerName());
+		System.out.println("Número de cuenta: " + account.getAccountNumber());
+		System.out.println("Balance: " + account.getBalance());
 		
 		//Segundo requerimiento
 		AccountsImp accountsImp = new AccountsImp();
@@ -22,9 +22,9 @@ public class AccountsMain {
 		accountsImp.generateAccounts();
 		
 		for(Account accounts:accountsImp.getAccounts()) {
-			System.out.println("Nombre del cliente: " + accounts.customerName);
-			System.out.println("Número de cuenta: " + accounts.accountNumber);
-			System.out.println("Balance: " + accounts.balance);
+			System.out.println("Nombre del cliente: " + accounts.getCustomerName());
+			System.out.println("Número de cuenta: " + accounts.getAccountNumber());
+			System.out.println("Balance: " + accounts.getBalance());
 			System.out.println("--------------------------------");
 		}
 		

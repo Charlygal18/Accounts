@@ -7,7 +7,7 @@ public class AccountsImp {
 	private Account[] accounts = new Account[3];
 	
 	public void validateAccounts(Account account) {
-		if(account.balance > 0.0 && !account.accountNumber.equals(NUM_CUENTA_NO_VALIDO)) {
+		if(account.getBalance() > 0.0 && !account.getAccountNumber().equals(NUM_CUENTA_NO_VALIDO)) {
 			System.out.println("La cuenta existe");
 		}
 		else {
