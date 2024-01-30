@@ -2,8 +2,12 @@ package com.skillabb.service.imp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import com.skillabb.exceptions.GenerateAccountException;
 import com.skillabb.exceptions.InvalidAccountException;
@@ -15,33 +19,31 @@ public class AccountsImp implements AccountService{
 	private Accounts accounts = new Accounts();
 	//private Account[] accounts = new Account[3];
 	
-	@Override
-	public void validateAccounts(Account account) {
-		if(account.getBalance() > 0.0 && !account.getAccountNumber().equals(NUM_CUENTA_NO_VALIDO)) {
-			System.out.println("La cuenta existe");
-		}
-		else {
-			throw new InvalidAccountException();
-		}
-	}
-	
-	@Override
-	public void generateAccounts(int numAccounts, int numCards) {
-		if(numAccounts >= 1) {
-		for (int i = 0; i < numAccounts; i++) {
-            Account account = new Account(getName(), generateAccountNumber(), generateAmount());
-            List<String> cardNumbers = new ArrayList<>();
-            for (int j = 0; j < numCards; j++) {
-                cardNumbers.add(UUID.randomUUID().toString());
-            }
-            account.setCardNumber(cardNumbers);
-            accounts.getAccountList().add(account);
-        }
-		}
-		else {
-			throw new GenerateAccountException();
-		}
-    }
+	 @Override
+	    public void validateAccounts(Account account) {
+	        if (account.getBalance() > 0.0 && !account.getAccountNumber().equals(NUM_CUENTA_NO_VALIDO)) {
+	            System.out.println("La cuenta existe");
+	        } else {
+	            throw new InvalidAccountException("La cuenta no existe");
+	        }
+	    }
+
+	    @Override
+	    public void generateAccounts(int numAccounts, int numCards) {
+	        if (numAccounts >= 1) {
+	            for (int i = 0; i < numAccounts; i++) {
+	                Account account = new Account(getName(), generateAccountNumber(), generateAmount());
+	                List<String> cardNumbers = new ArrayList<>();
+	                for (int j = 0; j < numCards; j++) {
+	                    cardNumbers.add(UUID.randomUUID().toString());
+	                }
+	                account.setCardNumber(cardNumbers);
+	                accounts.getAccountList().add(account);
+	            }
+	        } else {
+	            throw new GenerateAccountException("Se requiere al menos una cuenta para generar");
+	        }
+	    }
 	
 	public boolean validateAccount(Account account) {
 		return account.getBalance() > 0.0 && !account.getAccountNumber().equals(NUM_CUENTA_NO_VALIDO);
@@ -81,14 +83,4 @@ public class AccountsImp implements AccountService{
     public Accounts getAccounts() {
         return accounts;
     }
-
-	/*
-	public Account[] getAccounts() {
-		return accounts;
-	}
-
-	public void setAccounts(Account[] accounts) {
-		this.accounts = accounts;
-	}
-	*/
 }

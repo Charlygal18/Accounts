@@ -78,6 +78,4 @@ public class Account {
 		return "Account [customerName=" + customerName + ", accountNumber=" + accountNumber + ", balance=" + balance
 				+ ", fecha=" + fecha + ", hora=" + hora + ", cardNumber=" + cardNumber + "]";
 	}
-	
-	
 }

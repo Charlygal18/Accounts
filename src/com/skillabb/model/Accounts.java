@@ -18,6 +18,4 @@ public class Accounts {
 	public String toString() {
 		return "Accounts [accountList=" + accountList + "]";
 	}
-	
-	
 }
